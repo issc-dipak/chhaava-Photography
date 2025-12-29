@@ -102,113 +102,115 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="testimonials-page">
-      <div className="container">
-        {/* Header */}
-        <header className="testimonials-header">
-          <p className="kicker">Testimonials</p>
-          <h1>What Our Clients Say</h1>
-          <p className="lead">
-            Don't just take our word for it. Read what our clients have to say about 
-            their experience working with Chhaava Studio.
-          </p>
-        </header>
-
-        {/* Filter Buttons */}
-        <div className="testimonials-filter">
-          <button
-            className={`filter-btn ${filter === "all" ? "active" : ""}`}
-            onClick={() => setFilter("all")}
-          >
-            All Reviews
-          </button>
-          {categories.slice(1).map((category) => (
-            <button
-              key={category}
-              className={`filter-btn ${filter === category ? "active" : ""}`}
-              onClick={() => setFilter(category)}
-            >
-              {category.charAt(0).toUpperCase() + category.slice(1)}
-            </button>
-          ))}
-        </div>
-
-        {/* Testimonials Grid */}
-        {testimonialsToShow.length === 0 ? (
-          <div className="testimonials-empty">
-            <div className="empty-icon">💬</div>
-            <h3>No testimonials found</h3>
-            <p>Try selecting a different category or check back later.</p>
-          </div>
-        ) : (
-          <>
-            <div className="testimonials-grid">
-              {testimonialsToShow.map((testimonial) => (
-                <blockquote 
-                  className={`testimonial ${testimonial.featured ? "featured" : ""}`} 
-                  key={testimonial.id}
-                >
-                  {testimonial.featured && (
-                    <span className="featured-badge">Featured</span>
-                  )}
-                  
-                  <div className="testimonial-rating">
-                    {renderStars(testimonial.rating)}
-                  </div>
-                  
-                  <p className="testimonial__text">
-                    "{testimonial.text}"
-                  </p>
-                  
-                  <footer className="testimonial__author">
-                    <div className="author-avatar">
-                      {getInitials(testimonial.name)}
-                    </div>
-                    <div className="author-info">
-                      <cite className="author-name">{testimonial.name}</cite>
-                      <div className="author-role">{testimonial.role}</div>
-                    </div>
-                  </footer>
-                </blockquote>
-              ))}
-            </div>
-
-            {/* Load More Button */}
-            {visibleCount < filteredTestimonials.length && (
-              <div className="load-more-container">
-                <button
-                  className={`load-more-btn ${loading ? "loading" : ""}`}
-                  onClick={handleLoadMore}
-                  disabled={loading}
-                >
-                  {loading ? "Loading..." : "Load More Reviews"}
-                  {!loading && <ChevronDown size={16} />}
-                </button>
-              </div>
-            )}
-          </>
-        )}
-
-        {/* CTA Section */}
-        <div className="testimonials-cta">
-          <div className="cta-card">
-            <MessageCircle size={32} style={{ marginBottom: '1rem', color: 'var(--accent)' }} />
-            <h3>Ready to Create Your Story?</h3>
+    <div className="testimonials-page">
+      <section className="testimonials-section">
+        <div className="container">
+          {/* Header */}
+          <header className="testimonials-header">
+            <p className="kicker">Testimonials</p>
+            <h1>What Our Clients Say</h1>
             <p className="lead">
-              Join our satisfied clients and let us capture your special moments 
-              with the same care and professionalism.
+              Don't just take our word for it. Read what our clients have to say about 
+              their experience working with Chhaava Studio.
             </p>
-            <div className="cta-buttons">
-              <Link to="/contact" className="cta-btn primary">
-                Book Your Session
-              </Link>
-              <Link to="/portfolio" className="cta-btn secondary">
-                View Our Work
-              </Link>
+          </header>
+
+          {/* Filter Buttons */}
+          <div className="testimonials-filter">
+            <button
+              className={`filter-btn ${filter === "all" ? "active" : ""}`}
+              onClick={() => setFilter("all")}
+            >
+              All Reviews
+            </button>
+            {categories.slice(1).map((category) => (
+              <button
+                key={category}
+                className={`filter-btn ${filter === category ? "active" : ""}`}
+                onClick={() => setFilter(category)}
+              >
+                {category.charAt(0).toUpperCase() + category.slice(1)}
+              </button>
+            ))}
+          </div>
+
+          {/* Testimonials Grid */}
+          {testimonialsToShow.length === 0 ? (
+            <div className="testimonials-empty">
+              <div className="empty-icon">💬</div>
+              <h3>No testimonials found</h3>
+              <p>Try selecting a different category or check back later.</p>
+            </div>
+          ) : (
+            <>
+              <div className="testimonials-grid">
+                {testimonialsToShow.map((testimonial) => (
+                  <blockquote 
+                    className={`testimonial ${testimonial.featured ? "featured" : ""}`} 
+                    key={testimonial.id}
+                  >
+                    {testimonial.featured && (
+                      <span className="featured-badge">Featured</span>
+                    )}
+                    
+                    <div className="testimonial-rating">
+                      {renderStars(testimonial.rating)}
+                    </div>
+                    
+                    <p className="testimonial__text">
+                      "{testimonial.text}"
+                    </p>
+                    
+                    <footer className="testimonial__author">
+                      <div className="author-avatar">
+                        {getInitials(testimonial.name)}
+                      </div>
+                      <div className="author-info">
+                        <cite className="author-name">{testimonial.name}</cite>
+                        <div className="author-role">{testimonial.role}</div>
+                      </div>
+                    </footer>
+                  </blockquote>
+                ))}
+              </div>
+
+              {/* Load More Button */}
+              {visibleCount < filteredTestimonials.length && (
+                <div className="load-more-container">
+                  <button
+                    className={`load-more-btn ${loading ? "loading" : ""}`}
+                    onClick={handleLoadMore}
+                    disabled={loading}
+                  >
+                    {loading ? "Loading..." : "Load More Reviews"}
+                    {!loading && <ChevronDown size={16} />}
+                  </button>
+                </div>
+              )}
+            </>
+          )}
+
+          {/* CTA Section */}
+          <div className="testimonials-cta">
+            <div className="cta-card">
+              <MessageCircle size={32} style={{ marginBottom: '1rem', color: 'var(--accent)' }} />
+              <h3>Ready to Create Your Story?</h3>
+              <p className="lead">
+                Join our satisfied clients and let us capture your special moments 
+                with the same care and professionalism.
+              </p>
+              <div className="cta-buttons">
+                <Link to="/contact" className="cta-btn primary">
+                  Book Your Session
+                </Link>
+                <Link to="/portfolio" className="cta-btn secondary">
+                  View Our Work
+                </Link>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }

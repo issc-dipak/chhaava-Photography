@@ -1,673 +1,564 @@
-/* ==========================================================================
-   Premium Photography Services - Modern CSS Architecture
-   Dark cinematic theme with elegant typography and responsive design
-   Refactored and enhanced for production use
-   ========================================================================== */
+/* ============================================
+   CHHAAVA STUDIO - SERVICES SECTION STYLES
+   Luxury Photography Services Design
+   Page-Scoped: All selectors inside .services-page
+   ============================================ */
 
-/* ==========================================================================
-   CSS Variables & Base Styles
-   ========================================================================== */
+/* CSS Variables for Luxury Services - Balanced Scale */
+.services-page {
+    --services-dark: #0a0a0a;
+    --services-dark-secondary: #151515;
+    --services-charcoal: #1a1a1a;
+    --services-deep-brown: #2c1810;
+    --services-gold: #d4af37;
+    --services-gold-light: #e6c158;
+    --services-gold-glow: rgba(212, 175, 55, 0.05);
+    --services-light: #f8f8f8;
+    --services-light-secondary: #e0e0e0;
+    --services-light-tertiary: #a0a0a0;
 
-:root {
-    /* Color Palette - Dark cinematic theme */
-    --color-bg-primary: #0a0a0a;
-    --color-bg-secondary: #111111;
-    --color-bg-card: #1a1a1a;
-    --color-bg-card-hover: #222222;
-    --color-bg-accent: rgba(212, 175, 55, 0.1);
-
-    --color-text-primary: #f5f5f5;
-    --color-text-secondary: #b0b0b0;
-    --color-text-accent: #d4af37;
-    --color-text-muted: #888888;
-    --color-text-price: #ffffff;
-
-    --color-border: #333333;
-    --color-border-hover: #444444;
-    --color-border-accent: #d4af37;
-
-    --color-primary: #d4af37;
-    --color-primary-hover: #e6c158;
-    --color-primary-active: #c19b2e;
-
-    --color-badge-bg: rgba(212, 175, 55, 0.1);
-    --color-badge-text: #d4af37;
-
-    /* Typography */
-    --font-primary: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-    --font-secondary: 'Poppins', var(--font-primary);
-
-    /* Spacing Scale */
+    /* Balanced Spacing */
     --space-xs: 0.5rem;
-    --space-sm: 1rem;
-    --space-md: 1.5rem;
-    --space-lg: 2rem;
-    --space-xl: 3rem;
-    --space-2xl: 4rem;
-    --space-3xl: 6rem;
+    --space-sm: 0.75rem;
+    --space-md: 1.25rem;
+    --space-lg: 1.75rem;
+    --space-xl: 2.5rem;
+    --space-xxl: 3rem;
 
-    /* Border Radius */
-    --radius-sm: 0.25rem;
-    --radius-md: 0.5rem;
-    --radius-lg: 0.75rem;
-    --radius-xl: 1rem;
-    --radius-2xl: 1.5rem;
+    /* Balanced Typography */
+    --font-primary: 'Inter', -apple-system, sans-serif;
+    --font-secondary: 'Poppins', sans-serif;
+    --font-elegant: 'Playfair Display', serif;
 
-    /* Transitions */
-    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --text-xs: clamp(0.75rem, 0.75rem + 0.1vw, 0.875rem);
+    --text-sm: clamp(0.875rem, 0.85rem + 0.125vw, 1rem);
+    --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+    --text-lg: clamp(1.125rem, 1rem + 0.375vw, 1.25rem);
+    --text-xl: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+    --text-2xl: clamp(1.5rem, 1.25rem + 0.75vw, 2rem);
+    --text-3xl: clamp(1.75rem, 1.4rem + 1vw, 2.25rem);
+
+    /* Visual Properties */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-full: 9999px;
+
+    --transition-fast: 200ms cubic-bezier(0.4, 0, 0.2, 1);
     --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
 
-    /* Shadows */
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
-    --shadow-xl: 0 12px 48px rgba(0, 0, 0, 0.6);
+    --shadow-subtle: 0 2px 12px rgba(0, 0, 0, 0.1);
+    --shadow-gold: 0 0 20px var(--services-gold-glow);
+    --shadow-strong: 0 4px 20px rgba(0, 0, 0, 0.2);
+    --border-gold: 1px solid rgba(212, 175, 55, 0.08);
 
-    /* Container */
-    --container-max: 1400px;
+    background: linear-gradient(180deg,
+            var(--services-dark-secondary) 0%,
+            var(--services-dark) 100%);
+    padding: var(--space-xxl) 0;
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    color: var(--services-light-secondary);
 }
 
-/* ==========================================================================
-   Services Section Base
-   ========================================================================== */
-
-.services-section {
-    padding: var(--space-3xl) 0;
-    background-color: var(--color-bg-primary);
-    position: relative;
-    overflow: hidden;
-}
-
-.services-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+/* Container */
+.services-page .container {
     width: 100%;
-    height: 100%;
-    background:
-        radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.02) 0%, transparent 50%);
-    pointer-events: none;
-}
-
-.container {
-    width: 100%;
-    max-width: var(--container-max);
+    max-width: min(100% - var(--space-xl), 1200px);
     margin: 0 auto;
-    padding: 0 var(--space-xl);
+    padding: 0 var(--space-lg);
 }
 
-/* ==========================================================================
-   Services Header
-   ========================================================================== */
-
-.services-header {
+/* SECTION HEADER - Elegant & Compact */
+.services-page .services-header {
     text-align: center;
-    margin-bottom: var(--space-2xl);
+    margin-bottom: var(--space-xxl);
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
 }
 
-.kicker {
-    font-family: var(--font-secondary);
-    font-size: 0.875rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--color-text-accent);
-    margin-bottom: var(--space-sm);
+.services-page .kicker {
     display: inline-block;
-    padding: var(--space-xs) var(--space-sm);
-    background-color: var(--color-bg-accent);
-    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--services-gold);
+    margin-bottom: var(--space-sm);
+    position: relative;
+    padding-left: var(--space-md);
 }
 
-#services-heading {
-    font-family: var(--font-secondary);
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    color: var(--color-text-primary);
+.services-page .kicker::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: var(--space-sm);
+    height: 1px;
+    background: linear-gradient(90deg, var(--services-gold), transparent);
+}
+
+.services-page .services-header h2 {
+    font-family: var(--font-elegant);
+    font-size: var(--text-3xl);
+    font-weight: 500;
+    color: var(--services-light);
     margin-bottom: var(--space-md);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
 }
 
-.services-header .lead {
-    font-size: clamp(1rem, 2vw, 1.25rem);
-    line-height: 1.6;
-    color: var(--color-text-secondary);
-    margin-bottom: 0;
+.services-page .lead {
+    font-size: var(--text-base);
+    color: var(--services-light-secondary);
+    opacity: 0.9;
+    font-weight: 300;
+    margin: 0;
 }
 
-/* ==========================================================================
-   Services Grid
-   ========================================================================== */
-
-.services-grid {
+/* SERVICES GRID - Elegant Card Layout */
+.services-page .services-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-xl);
-    margin-bottom: var(--space-2xl);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
 }
 
-@media (min-width: 768px) {
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--space-xl);
-    }
-}
-
-@media (min-width: 1024px) {
-    .services-grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: var(--space-lg);
-    }
-}
-
-/* ==========================================================================
-   Service Cards
-   ========================================================================== */
-
-.service-card {
-    background-color: var(--color-bg-card);
-    border-radius: var(--radius-xl);
-    padding: var(--space-xl);
-    border: 1px solid var(--color-border);
+/* SERVICE CARD - Premium Design */
+.services-page .service-card {
+    background: linear-gradient(180deg,
+            var(--services-charcoal) 0%,
+            rgba(26, 26, 26, 0.95) 100%);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    border: var(--border-gold);
     transition: all var(--transition-base);
     position: relative;
     overflow: hidden;
-    height: 100%;
     display: flex;
     flex-direction: column;
-}
-
-.service-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, var(--color-primary), #b8941f);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform var(--transition-base);
-}
-
-.service-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--color-border-hover);
-    box-shadow: var(--shadow-xl);
-    background-color: var(--color-bg-card-hover);
-}
-
-.service-card:hover::before {
-    transform: scaleX(1);
-}
-
-.service-card:focus-within {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
-}
-
-/* Card Content */
-.service-title {
-    font-family: var(--font-secondary);
-    font-size: 1.5rem;
-    font-weight: 600;
-    line-height: 1.2;
-    color: var(--color-text-primary);
-    margin-bottom: var(--space-sm);
-    position: relative;
-    padding-bottom: var(--space-sm);
-}
-
-.service-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 40px;
-    height: 2px;
-    background-color: var(--color-primary);
-    border-radius: var(--radius-full);
-}
-
-.service-desc {
-    font-size: 0.9375rem;
-    line-height: 1.6;
-    color: var(--color-text-secondary);
-    margin-bottom: var(--space-lg);
-    flex-grow: 0;
-}
-
-/* Service Includes */
-.service-includes {
-    margin-bottom: var(--space-lg);
-    flex-grow: 1;
-}
-
-.service-includes strong {
-    display: block;
-    font-family: var(--font-secondary);
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--color-text-accent);
-    margin-bottom: var(--space-sm);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.service-includes ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.service-includes li {
-    font-size: 0.875rem;
-    line-height: 1.5;
-    color: var(--color-text-secondary);
-    margin-bottom: var(--space-xs);
-    padding-left: 1.5rem;
-    position: relative;
-}
-
-.service-includes li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--color-text-accent);
-    font-weight: 600;
-}
-
-.service-includes li:last-child {
-    margin-bottom: 0;
-}
-
-/* Service Footer */
-.service-footer {
-    margin-top: auto;
-    padding-top: var(--space-lg);
-    border-top: 1px solid var(--color-border);
-}
-
-.suitable {
-    font-size: 0.8125rem;
-    line-height: 1.5;
-    color: var(--color-text-muted);
-    margin-bottom: var(--space-sm);
-    font-style: italic;
-}
-
-.price {
-    font-family: var(--font-secondary);
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--color-text-price);
-    margin: 0;
-    display: flex;
-    align-items: center;
-    gap: var(--space-xs);
-}
-
-.price::before {
-    content: '';
-    width: 8px;
-    height: 8px;
-    background-color: var(--color-primary);
-    border-radius: 50%;
-    display: inline-block;
-}
-
-/* ==========================================================================
-   Call to Action
-   ========================================================================== */
-
-.services-cta {
-    text-align: center;
-    margin-top: var(--space-xl);
-}
-
-.center {
-    display: flex;
-    justify-content: center;
-}
-
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem 2.5rem;
-    font-family: var(--font-secondary);
-    font-size: 0.9375rem;
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: var(--radius-lg);
-    transition: all var(--transition-base);
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    position: relative;
-    overflow: hidden;
-    border: none;
-    cursor: pointer;
-}
-
-.btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    transition: left var(--transition-slow);
 }
 
-.btn:hover::before {
-    left: 100%;
-}
-
-.btn--primary {
-    background-color: var(--color-primary);
-    color: var(--color-bg-primary);
-}
-
-.btn--primary:hover {
-    background-color: var(--color-primary-hover);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-}
-
-.btn--primary:active {
-    background-color: var(--color-primary-active);
-    transform: translateY(0);
-}
-
-/* ==========================================================================
-   Responsive Design
-   ========================================================================== */
-
-/* Mobile */
-@media (max-width: 767px) {
-    .services-section {
-        padding: var(--space-2xl) 0;
-    }
-
-    .container {
-        padding: 0 var(--space-md);
-    }
-
-    .services-header {
-        margin-bottom: var(--space-xl);
-    }
-
-    #services-heading {
-        font-size: clamp(1.75rem, 4vw, 2.5rem);
-    }
-
-    .service-card {
-        padding: var(--space-lg);
-    }
-
-    .service-title {
-        font-size: 1.25rem;
-    }
-
-    .price {
-        font-size: 1.125rem;
-    }
-
-    .btn {
-        padding: 0.875rem 2rem;
-        width: 100%;
-        max-width: 300px;
-    }
-}
-
-/* Tablet */
-@media (min-width: 768px) and (max-width: 1023px) {
-    .services-section {
-        padding: var(--space-2xl) 0;
-    }
-
-    .container {
-        padding: 0 var(--space-xl);
-    }
-
-    .services-grid {
-        gap: var(--space-lg);
-    }
-
-    .service-card {
-        padding: var(--space-lg);
-    }
-}
-
-/* Laptop */
-@media (min-width: 1024px) and (max-width: 1279px) {
-    .services-grid {
-        gap: var(--space-md);
-    }
-
-    .service-card {
-        padding: var(--space-lg);
-    }
-}
-
-/* Desktop */
-@media (min-width: 1280px) {
-    .services-grid {
-        gap: var(--space-xl);
-    }
-}
-
-/* Large Desktop */
-@media (min-width: 1536px) {
-    .container {
-        max-width: 1600px;
-    }
-}
-
-/* Mobile Landscape */
-@media (max-height: 600px) and (orientation: landscape) {
-    .services-section {
-        padding: var(--space-xl) 0;
-    }
-
-    .services-header {
-        margin-bottom: var(--space-lg);
-    }
-
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--space-md);
-    }
-}
-
-/* ==========================================================================
-   Accessibility Features
-   ========================================================================== */
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-
-    .service-card,
-    .btn,
-    .service-card::before {
-        transition: none !important;
-    }
-
-    .service-card:hover {
-        transform: none !important;
-    }
-
-    .btn:hover {
-        transform: none !important;
-    }
-
-    .btn::before {
-        display: none;
-    }
-}
-
-/* Focus states */
-.service-card:focus-within,
-.btn:focus-visible {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
-}
-
-/* High contrast mode */
-@media (prefers-contrast: high) {
-    .service-card {
-        border: 2px solid var(--color-border);
-    }
-
-    .service-card:hover {
-        border: 2px solid var(--color-border-hover);
-    }
-
-    .service-includes li::before {
-        color: var(--color-text-primary);
-    }
-}
-
-/* Touch device optimizations */
-@media (hover: none) and (pointer: coarse) {
-    .service-card:hover {
-        transform: none;
-        background-color: var(--color-bg-card);
-    }
-
-    .service-card:hover::before {
-        transform: scaleX(0);
-    }
-
-    .btn:hover {
-        transform: none;
-        background-color: var(--color-primary);
-    }
-
-    .btn::before {
-        display: none;
-    }
-}
-
-/* ==========================================================================
-   Print Styles
-   ========================================================================== */
-
-@media print {
-    .services-section {
-        background-color: white !important;
-        padding: 2rem 0 !important;
-    }
-
-    .kicker {
-        color: black !important;
-        background: none !important;
-        padding: 0 !important;
-    }
-
-    #services-heading {
-        color: black !important;
-    }
-
-    .services-header .lead {
-        color: #666 !important;
-    }
-
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 1rem !important;
-    }
-
-    .service-card {
-        border: 1px solid #ddd !important;
-        box-shadow: none !important;
-        break-inside: avoid;
-        background: white !important;
-        color: black !important;
-        padding: 1rem !important;
-    }
-
-    .service-card::before {
-        display: none !important;
-    }
-
-    .service-title {
-        color: black !important;
-    }
-
-    .service-title::after {
-        background: black !important;
-    }
-
-    .service-desc,
-    .service-includes li,
-    .suitable {
-        color: #666 !important;
-    }
-
-    .service-includes strong {
-        color: black !important;
-    }
-
-    .price {
-        color: black !important;
-    }
-
-    .price::before {
-        background: black !important;
-    }
-
-    .services-cta {
-        display: none !important;
-    }
-}
-
-/* ==========================================================================
-   Optional Enhancement: Premium Badge
-   ========================================================================== */
-
-.service-card::after {
-    content: 'Premium';
+/* Card Hover Effect */
+.services-page .service-card::before {
+    content: '';
     position: absolute;
-    top: var(--space-md);
-    right: var(--space-md);
-    font-family: var(--font-secondary);
-    font-size: 0.6875rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--color-badge-text);
-    background-color: var(--color-badge-bg);
-    padding: 0.25rem 0.75rem;
-    border-radius: var(--radius-full);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg,
+            rgba(212, 175, 55, 0.03) 0%,
+            transparent 100%);
     opacity: 0;
     transition: opacity var(--transition-base);
+    pointer-events: none;
 }
 
-.service-card:hover::after {
+.services-page .service-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(212, 175, 55, 0.2);
+    box-shadow: var(--shadow-strong), var(--shadow-gold);
+}
+
+.services-page .service-card:hover::before {
     opacity: 1;
 }
 
-/* ==========================================================================
-   Utility Classes
-   ========================================================================== */
+/* Service Title */
+.services-page .service-title {
+    font-family: var(--font-secondary);
+    font-size: var(--text-xl);
+    font-weight: 600;
+    color: var(--services-light);
+    margin-bottom: var(--space-sm);
+    line-height: 1.2;
+}
 
-.visually-hidden {
-    position: absolute !important;
-    width: 1px !important;
-    height: 1px !important;
-    padding: 0 !important;
-    margin: -1px !important;
-    overflow: hidden !important;
-    clip: rect(0, 0, 0, 0) !important;
-    white-space: nowrap !important;
-    border: 0 !important;
+/* Service Description */
+.services-page .service-desc {
+    font-size: var(--text-base);
+    color: var(--services-light-secondary);
+    margin-bottom: var(--space-md);
+    opacity: 0.9;
+    flex-grow: 1;
+}
+
+/* What's Included Section */
+.services-page .service-includes {
+    margin-bottom: var(--space-lg);
+    padding-top: var(--space-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.services-page .service-includes strong {
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--services-gold);
+    margin-bottom: var(--space-sm);
+}
+
+.services-page .service-includes ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.services-page .service-includes li {
+    font-size: var(--text-sm);
+    color: var(--services-light-tertiary);
+    padding-left: var(--space-md);
+    position: relative;
+    margin-bottom: var(--space-xs);
+}
+
+.services-page .service-includes li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.75em;
+    width: 4px;
+    height: 4px;
+    background: var(--services-gold);
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+/* Service Footer */
+.services-page .service-footer {
+    margin-top: auto;
+    padding-top: var(--space-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.services-page .suitable {
+    font-size: var(--text-xs);
+    color: var(--services-light-tertiary);
+    margin-bottom: var(--space-sm);
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.services-page .price {
+    font-family: var(--font-secondary);
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--services-gold);
+    margin: 0;
+    letter-spacing: 0.02em;
+}
+
+/* Special styling for "Contact for Quote" */
+.services-page .service-footer .price[data-price="quote"] {
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* CTA BUTTON - Elegant Style */
+.services-page .services-cta {
+    text-align: center;
+}
+
+.services-page .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 2rem;
+    font-family: var(--font-primary);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    transition: all var(--transition-base);
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.services-page .btn--primary {
+    background: linear-gradient(135deg, var(--services-gold), var(--services-gold-light));
+    color: var(--services-dark);
+    box-shadow: var(--shadow-gold);
+}
+
+.services-page .btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-strong), var(--shadow-gold);
+}
+
+/* Accessibility States */
+.services-page .service-card:focus-within {
+    outline: 2px solid var(--services-gold);
+    outline-offset: 4px;
+    border-radius: var(--radius-lg);
+}
+
+.services-page .btn:focus-visible {
+    outline: 2px solid var(--services-gold);
+    outline-offset: 2px;
+    border-radius: var(--radius-full);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - Balanced Scale
+   ============================================ */
+
+/* Tablet (768px and up) */
+@media (min-width: 768px) {
+    .services-page .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-xl);
+    }
+
+    .services-page .services-header {
+        margin-bottom: var(--space-xxl);
+    }
+
+    .services-page .service-card {
+        padding: var(--space-xl);
+    }
+
+    .services-page .kicker {
+        font-size: var(--text-base);
+    }
+
+    .services-page .services-header h2 {
+        font-size: var(--text-3xl);
+    }
+}
+
+/* Desktop (1024px and up) */
+@media (min-width: 1024px) {
+    .services-page .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-xl);
+    }
+
+    .services-page .container {
+        padding: 0 var(--space-xl);
+    }
+
+    .services-page {
+        padding: var(--space-xxl) 0;
+    }
+
+    .services-page .services-header h2 {
+        font-size: var(--text-3xl);
+    }
+}
+
+/* Large Desktop (1200px and up) */
+@media (min-width: 1200px) {
+    .services-page .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-xxl);
+    }
+
+    .services-page .service-card {
+        padding: var(--space-xl);
+    }
+
+    .services-page .service-title {
+        font-size: var(--text-2xl);
+    }
+}
+
+/* Mobile Optimization */
+@media (max-width: 767px) {
+    .services-page {
+        padding: var(--space-xl) 0;
+    }
+
+    .services-page .container {
+        padding: 0 var(--space-md);
+    }
+
+    .services-page .services-header h2 {
+        font-size: var(--text-2xl);
+    }
+
+    .services-page .lead {
+        font-size: var(--text-sm);
+    }
+
+    .services-page .services-grid {
+        gap: var(--space-lg);
+    }
+
+    .services-page .service-card {
+        padding: var(--space-lg);
+    }
+
+    .services-page .service-title {
+        font-size: var(--text-lg);
+    }
+
+    .services-page .service-desc {
+        font-size: var(--text-sm);
+    }
+
+    .services-page .service-includes li {
+        font-size: var(--text-xs);
+    }
+
+    .services-page .price {
+        font-size: var(--text-base);
+    }
+}
+
+/* Small Mobile (480px and down) */
+@media (max-width: 480px) {
+    .services-page .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .services-page .services-header h2 {
+        font-size: var(--text-2xl);
+    }
+
+    .services-page .kicker {
+        font-size: var(--text-sm);
+        padding-left: var(--space-sm);
+    }
+
+    .services-page .service-card {
+        padding: var(--space-md);
+    }
+
+    .services-page .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: var(--text-xs);
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY & PERFORMANCE
+   ============================================ */
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+
+    .services-page *,
+    .services-page *::before,
+    .services-page *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .services-page .service-card:hover {
+        transform: none;
+    }
+
+    .services-page .btn:hover {
+        transform: none;
+    }
+
+    .services-page .service-card:hover::before {
+        opacity: 0;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .services-page {
+        --services-gold: #ffd700;
+        --services-light: #ffffff;
+        --services-dark: #000000;
+        --services-charcoal: #111111;
+    }
+
+    .services-page .service-card {
+        border: 2px solid #ffffff;
+    }
+
+    .services-page .service-card:hover {
+        border-color: #ffd700;
+        outline: 2px solid #ffd700;
+    }
+
+    .services-page .kicker {
+        color: #ffd700;
+    }
+
+    .services-page .price {
+        color: #ffd700;
+    }
+
+    .services-page .service-includes strong {
+        color: #ffd700;
+    }
+
+    .services-page .service-includes li::before {
+        background: #ffd700;
+    }
+}
+
+/* Dark Mode Consistency */
+@media (prefers-color-scheme: dark) {
+    .services-page .service-card {
+        background: linear-gradient(180deg,
+                #111111 0%,
+                rgba(17, 17, 17, 0.95) 100%);
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) {
+    .services-page .service-card:hover {
+        transform: none;
+    }
+
+    .services-page .btn:hover {
+        transform: none;
+    }
+
+    .services-page .service-card:hover::before {
+        opacity: 0;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .services-page {
+        background: #ffffff !important;
+        color: #000000 !important;
+    }
+
+    .services-page .service-card {
+        background: #ffffff !important;
+        border: 1px solid #000000 !important;
+        box-shadow: none !important;
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .services-page .services-grid {
+        display: block;
+    }
+
+    .services-page .btn {
+        display: none;
+    }
+
+    .services-page .service-title {
+        color: #000000 !important;
+    }
+
+    .services-page .price {
+        color: #000000 !important;
+    }
+
+    .services-page .service-includes li::before {
+        background: #000000;
+    }
 }

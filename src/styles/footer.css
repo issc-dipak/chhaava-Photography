@@ -1,626 +1,651 @@
-/* ==========================================================================
-   Premium Photography Footer - Modern CSS Architecture
-   Dark cinematic theme with elegant typography and responsive design
-   Refactored and enhanced for production use
-   ========================================================================== */
+/* ============================================
+   CHHAAVA STUDIO - FOOTER STYLES
+   Luxury Photography Footer Design
+   Page-Scoped: All selectors inside .footer-page
+   ============================================ */
 
-/* ==========================================================================
-   CSS Variables & Base Styles
-   ========================================================================== */
+/* CSS Variables for Luxury Footer - Balanced Scale */
+.footer-page {
+    --footer-dark: #0a0a0a;
+    --footer-charcoal: #151515;
+    --footer-deep-brown: #2c1810;
+    --footer-gold: #d4af37;
+    --footer-gold-light: #e6c158;
+    --footer-gold-glow: rgba(212, 175, 55, 0.05);
+    --footer-light: #f8f8f8;
+    --footer-light-secondary: #e0e0e0;
+    --footer-light-tertiary: #a0a0a0;
 
-:root {
-    /* Color Palette - Dark cinematic theme */
-    --color-bg-footer: #0a0a0a;
-    --color-bg-footer-secondary: #111111;
-    --color-bg-footer-bottom: #080808;
-
-    --color-text-primary: #f5f5f5;
-    --color-text-secondary: #b0b0b0;
-    --color-text-accent: #d4af37;
-    --color-text-muted: #888888;
-
-    --color-border: #333333;
-    --color-border-hover: #444444;
-    --color-border-light: rgba(255, 255, 255, 0.1);
-
-    --color-social-bg: rgba(255, 255, 255, 0.05);
-    --color-social-bg-hover: rgba(212, 175, 55, 0.2);
-    --color-social-icon: #b0b0b0;
-    --color-social-icon-hover: #d4af37;
-
-    /* Typography */
-    --font-primary: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-    --font-secondary: 'Poppins', var(--font-primary);
-
-    /* Spacing Scale */
+    /* Balanced Spacing */
     --space-xs: 0.5rem;
-    --space-sm: 1rem;
-    --space-md: 1.5rem;
-    --space-lg: 2rem;
-    --space-xl: 3rem;
-    --space-2xl: 4rem;
-    --space-3xl: 6rem;
+    --space-sm: 0.75rem;
+    --space-md: 1.25rem;
+    --space-lg: 1.75rem;
+    --space-xl: 2.5rem;
+    --space-xxl: 3rem;
 
-    /* Border Radius */
-    --radius-sm: 0.25rem;
-    --radius-md: 0.5rem;
-    --radius-lg: 0.75rem;
-    --radius-xl: 1rem;
+    /* Balanced Typography */
+    --font-primary: 'Inter', -apple-system, sans-serif;
+    --font-secondary: 'Poppins', sans-serif;
+    --font-elegant: 'Playfair Display', serif;
+
+    --text-xs: clamp(0.75rem, 0.75rem + 0.1vw, 0.875rem);
+    --text-sm: clamp(0.875rem, 0.85rem + 0.125vw, 1rem);
+    --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+    --text-lg: clamp(1.125rem, 1rem + 0.375vw, 1.25rem);
+
+    /* Visual Properties */
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
     --radius-full: 9999px;
 
-    /* Transitions */
-    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: 200ms cubic-bezier(0.4, 0, 0.2, 1);
     --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
 
-    /* Shadows */
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
-
-    /* Container */
-    --container-max: 1400px;
+    --shadow-subtle: 0 2px 12px rgba(0, 0, 0, 0.1);
+    --border-gold: 1px solid rgba(212, 175, 55, 0.1);
 }
 
-/* ==========================================================================
-   Footer Base Styles
-   ========================================================================== */
-
-.site-footer {
-    background-color: var(--color-bg-footer);
-    color: var(--color-text-secondary);
-    font-family: var(--font-primary);
+/* FOOTER CONTAINER - Elegant & Compact */
+.footer-page .site-footer {
+    background: linear-gradient(180deg,
+            var(--footer-charcoal) 0%,
+            var(--footer-dark) 100%);
     position: relative;
-    border-top: 1px solid var(--color-border);
+    overflow: hidden;
+    font-family: var(--font-primary);
 }
 
-.site-footer::before {
+/* Top Border Decoration */
+.footer-page .site-footer::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    right: 0;
     height: 1px;
     background: linear-gradient(90deg,
-            transparent,
-            var(--color-text-accent),
-            transparent);
+            transparent 0%,
+            var(--footer-gold) 50%,
+            transparent 100%);
     opacity: 0.3;
 }
 
-/* ==========================================================================
-   Footer Content Layout
-   ========================================================================== */
-
-.footer-content {
-    max-width: var(--container-max);
-    margin: 0 auto;
-    padding: var(--space-3xl) var(--space-xl);
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-2xl);
-}
-
-@media (min-width: 768px) {
-    .footer-content {
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--space-2xl);
-    }
-}
-
-@media (min-width: 1024px) {
-    .footer-content {
-        grid-template-columns: 2fr 1fr 1.5fr;
-        gap: var(--space-2xl);
-    }
-}
-
-/* ==========================================================================
-   Footer Brand Section
-   ========================================================================== */
-
-.footer-brand {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-}
-
-.footer-brand strong {
-    font-family: var(--font-secondary);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--color-text-primary);
-    letter-spacing: -0.02em;
-    position: relative;
-    display: inline-block;
-    padding-bottom: var(--space-sm);
-}
-
-.footer-brand strong::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 40px;
-    height: 2px;
-    background-color: var(--color-text-accent);
-    border-radius: var(--radius-full);
-}
-
-.footer-tagline {
-    font-size: 0.9375rem;
-    line-height: 1.6;
-    color: var(--color-text-secondary);
-    max-width: 400px;
-    margin: 0;
-}
-
-.footer-copyright {
-    font-size: 0.875rem;
-    color: var(--color-text-muted);
-    margin: var(--space-sm) 0 0 0;
-    padding-top: var(--space-sm);
-    border-top: 1px solid var(--color-border-light);
-}
-
-/* ==========================================================================
-   Footer Links Section
-   ========================================================================== */
-
-.footer-links h4 {
-    font-family: var(--font-secondary);
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: var(--color-text-primary);
-    margin-bottom: var(--space-lg);
-    position: relative;
-    padding-bottom: var(--space-sm);
-}
-
-.footer-links h4::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 30px;
-    height: 2px;
-    background-color: var(--color-text-accent);
-    border-radius: var(--radius-full);
-}
-
-.footer-links ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-}
-
-.footer-links li {
-    margin: 0;
-}
-
-.footer-links a {
-    color: var(--color-text-secondary);
-    text-decoration: none;
-    font-size: 0.9375rem;
-    transition: all var(--transition-fast);
-    padding: var(--space-xs) 0;
-    display: inline-block;
-    position: relative;
-}
-
-.footer-links a::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background-color: var(--color-text-accent);
-    transition: width var(--transition-base);
-}
-
-.footer-links a:hover {
-    color: var(--color-text-primary);
-    transform: translateX(4px);
-}
-
-.footer-links a:hover::before {
-    width: 20px;
-}
-
-/* ==========================================================================
-   Footer Contact Section
-   ========================================================================== */
-
-.footer-contact h4 {
-    font-family: var(--font-secondary);
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: var(--color-text-primary);
-    margin-bottom: var(--space-lg);
-    position: relative;
-    padding-bottom: var(--space-sm);
-}
-
-.footer-contact h4::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 30px;
-    height: 2px;
-    background-color: var(--color-text-accent);
-    border-radius: var(--radius-full);
-}
-
-.footer-email,
-.footer-phone {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    font-size: 0.9375rem;
-    color: var(--color-text-secondary);
-    margin-bottom: var(--space-md);
-    transition: color var(--transition-fast);
-}
-
-.footer-email:hover,
-.footer-phone:hover {
-    color: var(--color-text-primary);
-}
-
-.footer-email svg,
-.footer-phone svg {
-    color: var(--color-text-accent);
-    flex-shrink: 0;
-}
-
-/* Social Links */
-.footer-social {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-    margin-top: var(--space-lg);
-}
-
-.social-link {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    padding: var(--space-sm);
-    background-color: var(--color-social-bg);
-    border-radius: var(--radius-md);
-    color: var(--color-text-secondary);
-    text-decoration: none;
-    font-size: 0.875rem;
-    transition: all var(--transition-base);
-    border: 1px solid transparent;
-}
-
-.social-link:hover {
-    background-color: var(--color-social-bg-hover);
-    color: var(--color-text-primary);
-    border-color: var(--color-border-hover);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-sm);
-}
-
-.social-link svg {
-    color: var(--color-social-icon);
-    transition: color var(--transition-fast);
-}
-
-.social-link:hover svg {
-    color: var(--color-social-icon-hover);
-}
-
-.social-link span {
-    transition: transform var(--transition-fast);
-}
-
-.social-link:hover span {
-    transform: translateX(2px);
-}
-
-/* ==========================================================================
-   Footer Bottom Section
-   ========================================================================== */
-
-.footer-bottom {
-    background-color: var(--color-bg-footer-bottom);
-    padding: var(--space-lg) var(--space-xl);
-    text-align: center;
-    border-top: 1px solid var(--color-border);
-    position: relative;
-}
-
-.footer-bottom::before {
+/* Subtle Background Pattern */
+.footer-page .site-footer::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(90deg,
-            transparent,
-            rgba(212, 175, 55, 0.2),
-            transparent);
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(circle at 20% 80%,
+            rgba(212, 175, 55, 0.02) 0%,
+            transparent 50%);
+    pointer-events: none;
+    z-index: 0;
 }
 
-.footer-bottom p {
-    font-size: 0.875rem;
-    color: var(--color-text-muted);
+/* MAIN FOOTER CONTENT - Compact Grid Layout */
+.footer-page .footer-content {
+    max-width: min(100% - var(--space-xl), 1100px);
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-lg);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    position: relative;
+    z-index: 1;
+}
+
+/* BRAND SECTION - Premium Identity */
+.footer-page .footer-brand {
+    text-align: center;
+    padding-bottom: var(--space-lg);
+    border-bottom: var(--border-gold);
+    margin-bottom: var(--space-lg);
+}
+
+.footer-page .footer-brand strong {
+    font-family: var(--font-elegant);
+    font-size: var(--text-lg);
+    font-weight: 500;
+    color: var(--footer-light);
+    display: block;
+    margin-bottom: var(--space-sm);
+    letter-spacing: 0.03em;
+    position: relative;
+    padding-bottom: var(--space-sm);
+}
+
+/* Gold Underline Effect */
+.footer-page .footer-brand strong::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            var(--footer-gold) 50%,
+            transparent 100%);
+}
+
+.footer-page .footer-tagline {
+    font-family: var(--font-primary);
+    font-size: var(--text-sm);
+    line-height: 1.6;
+    color: var(--footer-light-secondary);
+    margin: 0 auto var(--space-sm);
+    max-width: 320px;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+.footer-page .footer-copyright {
+    font-family: var(--font-primary);
+    font-size: var(--text-xs);
+    color: var(--footer-light-tertiary);
     margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+}
+
+/* QUICK LINKS SECTION - Minimal Navigation */
+.footer-page .footer-links {
+    text-align: center;
+}
+
+.footer-page .footer-links h4 {
+    font-family: var(--font-secondary);
+    font-size: var(--text-base);
+    font-weight: 500;
+    color: var(--footer-light);
+    margin-bottom: var(--space-md);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+.footer-page .footer-links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+    flex-direction: column;
     gap: var(--space-xs);
 }
 
-.footer-bottom p::before {
+.footer-page .footer-links li {
+    margin: 0;
+}
+
+.footer-page .footer-links a {
+    display: inline-block;
+    font-family: var(--font-primary);
+    font-size: var(--text-sm);
+    color: var(--footer-light-secondary);
+    padding: 0.375rem 0.75rem;
+    border-radius: var(--radius-full);
+    transition: all var(--transition-base);
+    position: relative;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+/* Hover Effect - Subtle Background */
+.footer-page .footer-links a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: var(--radius-full);
+    background: linear-gradient(135deg,
+            transparent 0%,
+            rgba(212, 175, 55, 0.05) 100%);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+    z-index: -1;
+}
+
+.footer-page .footer-links a:hover {
+    color: var(--footer-gold-light);
+    transform: translateX(3px);
+}
+
+.footer-page .footer-links a:hover::before {
+    opacity: 1;
+}
+
+/* CONTACT SECTION - Professional Details */
+.footer-page .footer-contact {
+    text-align: center;
+}
+
+.footer-page .footer-contact h4 {
+    font-family: var(--font-secondary);
+    font-size: var(--text-base);
+    font-weight: 500;
+    color: var(--footer-light);
+    margin-bottom: var(--space-md);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+/* Contact Info Items */
+.footer-page .footer-email,
+.footer-page .footer-phone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    font-family: var(--font-primary);
+    font-size: var(--text-sm);
+    color: var(--footer-light-secondary);
+    margin-bottom: var(--space-sm);
+    padding: 0.5rem;
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.02);
+    transition: all var(--transition-base);
+}
+
+.footer-page .footer-email:hover,
+.footer-page .footer-phone:hover {
+    background: rgba(212, 175, 55, 0.03);
+    transform: translateY(-1px);
+    color: var(--footer-gold-light);
+}
+
+.footer-page .footer-email svg,
+.footer-page .footer-phone svg {
+    stroke: var(--footer-gold);
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    transition: stroke var(--transition-base);
+}
+
+.footer-page .footer-email:hover svg,
+.footer-page .footer-phone:hover svg {
+    stroke: var(--footer-gold-light);
+}
+
+/* SOCIAL LINKS - Elegant Icons */
+.footer-page .footer-social {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    flex-wrap: wrap;
+}
+
+.footer-page .social-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-sm);
+    border-radius: var(--radius-md);
+    color: var(--footer-light-secondary);
+    transition: all var(--transition-base);
+    text-decoration: none;
+    min-width: 70px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Social Link Hover Effect */
+.footer-page .social-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg,
+            rgba(212, 175, 55, 0.03) 0%,
+            transparent 100%);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+    z-index: -1;
+}
+
+.footer-page .social-link:hover {
+    color: var(--footer-gold-light);
+    transform: translateY(-1px);
+}
+
+.footer-page .social-link:hover::before {
+    opacity: 1;
+}
+
+.footer-page .social-link svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    transition: all var(--transition-base);
+}
+
+.footer-page .social-link:hover svg {
+    transform: scale(1.08);
+}
+
+.footer-page .social-link span {
+    font-family: var(--font-primary);
+    font-size: var(--text-xs);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+/* FOOTER BOTTOM - Minimal Bar */
+.footer-page .footer-bottom {
+    background: rgba(10, 10, 10, 0.9);
+    backdrop-filter: blur(8px);
+    padding: var(--space-md) var(--space-lg);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-page .footer-bottom::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(212, 175, 55, 0.1) 50%,
+            transparent 100%);
+}
+
+.footer-page .footer-bottom p {
+    font-family: var(--font-primary);
+    font-size: var(--text-xs);
+    color: var(--footer-light-tertiary);
+    margin: 0;
+    font-weight: 300;
+    letter-spacing: 0.03em;
+}
+
+.footer-page .footer-bottom p::before {
     content: '❤️';
-    font-size: 0.75rem;
+    margin-right: var(--space-xs);
+    color: var(--footer-gold);
+    opacity: 0.7;
+    animation: gentlePulse 4s ease-in-out infinite;
 }
 
-/* ==========================================================================
-   Responsive Design
-   ========================================================================== */
+@keyframes gentlePulse {
 
-/* Mobile */
-@media (max-width: 767px) {
-    .footer-content {
-        padding: var(--space-2xl) var(--space-md);
+    0%,
+    100% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 0.9;
+    }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - Balanced Scale
+   ============================================ */
+
+/* Tablet (768px and up) */
+@media (min-width: 768px) {
+    .footer-page .footer-content {
+        grid-template-columns: 1.5fr 1fr 1fr;
         gap: var(--space-xl);
+        padding: var(--space-xl) var(--space-lg);
     }
 
-    .footer-links h4,
-    .footer-contact h4 {
-        margin-bottom: var(--space-md);
+    .footer-page .footer-brand {
+        text-align: left;
+        padding-bottom: 0;
+        border-bottom: none;
+        margin-bottom: 0;
+        border-right: var(--border-gold);
+        padding-right: var(--space-xl);
     }
 
-    .footer-social {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: var(--space-sm);
+    .footer-page .footer-brand strong::after {
+        left: 0;
+        transform: none;
     }
 
-    .social-link {
-        padding: var(--space-xs) var(--space-sm);
-        flex: 1;
-        min-width: 120px;
-        justify-content: center;
+    .footer-page .footer-links,
+    .footer-page .footer-contact {
+        text-align: left;
     }
 
-    .footer-bottom {
-        padding: var(--space-md) var(--space-md);
+    .footer-page .footer-links ul {
+        align-items: flex-start;
     }
 
-    .footer-bottom p {
-        flex-direction: column;
-        gap: var(--space-xs);
-        text-align: center;
-    }
-}
-
-/* Tablet */
-@media (min-width: 768px) and (max-width: 1023px) {
-    .footer-content {
-        padding: var(--space-2xl) var(--space-xl);
-    }
-
-    .footer-links h4,
-    .footer-contact h4 {
-        margin-bottom: var(--space-md);
-    }
-
-    .footer-social {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: var(--space-sm);
-    }
-
-    .social-link {
-        flex: 1;
-        min-width: 140px;
+    .footer-page .footer-links a {
         justify-content: flex-start;
     }
-}
 
-/* Laptop */
-@media (min-width: 1024px) and (max-width: 1279px) {
-    .footer-content {
-        padding: var(--space-2xl) var(--space-xl);
+    .footer-page .footer-email,
+    .footer-page .footer-phone {
+        justify-content: flex-start;
+    }
+
+    .footer-page .footer-social {
+        justify-content: flex-start;
+    }
+
+    .footer-page .social-link {
+        flex-direction: row;
+        min-width: auto;
+        padding: 0.375rem 0.75rem;
+        gap: var(--space-sm);
+    }
+
+    .footer-page .social-link span {
+        font-size: var(--text-xs);
     }
 }
 
-/* Desktop */
-@media (min-width: 1280px) {
-    .footer-content {
-        padding: var(--space-3xl) var(--space-2xl);
+/* Desktop (1024px and up) */
+@media (min-width: 1024px) {
+    .footer-page .footer-content {
+        padding: var(--space-xl) 0;
+    }
+
+    .footer-page .footer-brand {
+        padding-right: var(--space-xl);
+    }
+
+    .footer-page .footer-tagline {
+        max-width: 280px;
     }
 }
 
-/* Large Desktop */
-@media (min-width: 1536px) {
-    .footer-content {
-        max-width: 1600px;
+/* Large Desktop (1200px and up) */
+@media (min-width: 1200px) {
+    .footer-page .footer-content {
+        gap: var(--space-xxl);
+    }
+
+    .footer-page .footer-tagline {
+        max-width: 320px;
     }
 }
 
-/* Mobile Landscape */
-@media (max-height: 600px) and (orientation: landscape) {
-    .footer-content {
-        padding: var(--space-xl) var(--space-md);
+/* Mobile Optimization */
+@media (max-width: 767px) {
+    .footer-page .footer-content {
+        padding: var(--space-lg) var(--space-md);
         gap: var(--space-lg);
     }
 
-    .footer-bottom {
-        padding: var(--space-md) var(--space-md);
+    .footer-page .footer-brand {
+        padding-bottom: var(--space-lg);
+        margin-bottom: var(--space-lg);
+    }
+
+    .footer-page .footer-social {
+        gap: var(--space-sm);
+    }
+
+    .footer-page .social-link {
+        min-width: 65px;
+        padding: 0.625rem;
     }
 }
 
-/* ==========================================================================
-   Accessibility Features
-   ========================================================================== */
+/* Small Mobile (480px and down) */
+@media (max-width: 480px) {
+    .footer-page .footer-content {
+        padding: var(--space-md);
+        gap: var(--space-md);
+    }
 
-/* Reduced motion */
+    .footer-page .footer-brand strong {
+        font-size: var(--text-base);
+    }
+
+    .footer-page .footer-tagline {
+        font-size: var(--text-sm);
+        max-width: 260px;
+    }
+
+    .footer-page .footer-social {
+        gap: var(--space-xs);
+    }
+
+    .footer-page .social-link {
+        min-width: 60px;
+        padding: 0.5rem;
+    }
+
+    .footer-page .social-link span {
+        font-size: 0.65rem;
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY & PERFORMANCE
+   ============================================ */
+
+/* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
 
-    .footer-links a,
-    .social-link,
-    .footer-email,
-    .footer-phone {
-        transition: none !important;
+    .footer-page *,
+    .footer-page *::before,
+    .footer-page *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 
-    .footer-links a:hover {
-        transform: none !important;
+    .footer-page .footer-bottom p::before {
+        animation: none;
+        opacity: 0.8;
     }
 
-    .social-link:hover {
-        transform: none !important;
+    .footer-page .footer-links a:hover {
+        transform: none;
     }
 
-    .social-link:hover span {
-        transform: none !important;
+    .footer-page .footer-email:hover,
+    .footer-page .footer-phone:hover {
+        transform: none;
+    }
+
+    .footer-page .social-link:hover {
+        transform: none;
+    }
+
+    .footer-page .social-link:hover svg {
+        transform: none;
     }
 }
 
-/* Focus states */
-.footer-links a:focus-visible,
-.social-link:focus-visible {
-    outline: 2px solid var(--color-text-accent);
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .footer-page {
+        --footer-gold: #ffd700;
+        --footer-light: #ffffff;
+        --footer-dark: #000000;
+        --footer-charcoal: #111111;
+    }
+
+    .footer-page .site-footer::before {
+        background: linear-gradient(90deg,
+                transparent 0%,
+                #ffd700 50%,
+                transparent 100%);
+    }
+
+    .footer-page .footer-links a:hover {
+        outline: 1px solid #ffd700;
+    }
+}
+
+/* Dark Mode Consistency */
+@media (prefers-color-scheme: dark) {
+    .footer-page .site-footer {
+        background: linear-gradient(180deg,
+                #111111 0%,
+                #000000 100%);
+    }
+
+    .footer-page .footer-bottom {
+        background: rgba(0, 0, 0, 0.9);
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) {
+    .footer-page .footer-links a:hover {
+        transform: none;
+    }
+
+    .footer-page .footer-email:hover,
+    .footer-page .footer-phone:hover {
+        transform: none;
+    }
+
+    .footer-page .social-link:hover {
+        transform: none;
+    }
+}
+
+/* Keyboard Navigation Focus */
+.footer-page .footer-links a:focus-visible,
+.footer-page .social-link:focus-visible,
+.footer-page .footer-email:focus-visible,
+.footer-page .footer-phone:focus-visible {
+    outline: 2px solid var(--footer-gold);
     outline-offset: 2px;
     border-radius: var(--radius-sm);
 }
 
-/* High contrast mode */
-@media (prefers-contrast: high) {
-    .site-footer {
-        border-top: 2px solid var(--color-border);
-    }
-
-    .footer-links a {
-        text-decoration: underline;
-    }
-
-    .social-link {
-        border: 1px solid var(--color-border);
-    }
-}
-
-/* Touch device optimizations */
-@media (hover: none) and (pointer: coarse) {
-    .footer-links a:hover {
-        transform: none;
-    }
-
-    .social-link:hover {
-        transform: none;
-        background-color: var(--color-social-bg);
-    }
-
-    .social-link:active {
-        background-color: var(--color-social-bg-hover);
-    }
-}
-
-/* ==========================================================================
-   Print Styles
-   ========================================================================== */
-
+/* Print Styles */
 @media print {
-    .site-footer {
-        background-color: white !important;
-        color: black !important;
-        border-top: 2px solid #000 !important;
-    }
-
-    .footer-brand strong {
-        color: black !important;
-    }
-
-    .footer-brand strong::after {
-        background-color: black !important;
-    }
-
-    .footer-tagline {
-        color: #666 !important;
-    }
-
-    .footer-copyright {
-        color: #666 !important;
-        border-top: 1px solid #ddd !important;
-    }
-
-    .footer-links h4,
-    .footer-contact h4 {
-        color: black !important;
-    }
-
-    .footer-links h4::after,
-    .footer-contact h4::after {
-        background-color: black !important;
-    }
-
-    .footer-links a {
-        color: #333 !important;
-    }
-
-    .footer-links a::before {
-        display: none !important;
-    }
-
-    .footer-email,
-    .footer-phone {
-        color: #333 !important;
-    }
-
-    .footer-email svg,
-    .footer-phone svg {
-        color: black !important;
-    }
-
-    .footer-social,
-    .social-link span {
-        display: none !important;
-    }
-
-    .social-link {
+    .footer-page .site-footer {
         background: none !important;
-        border: none !important;
-        padding: 0 !important;
+        border-top: 1px solid #000000;
     }
 
-    .social-link svg {
-        color: black !important;
+    .footer-page .footer-social {
+        display: none;
     }
 
-    .footer-bottom {
-        background-color: white !important;
-        border-top: 1px solid #ddd !important;
+    .footer-page .footer-bottom p::before {
+        content: '❤️';
+        animation: none;
     }
-
-    .footer-bottom p {
-        color: #666 !important;
-    }
-}
-
-/* ==========================================================================
-   Utility Classes
-   ========================================================================== */
-
-.visually-hidden {
-    position: absolute !important;
-    width: 1px !important;
-    height: 1px !important;
-    padding: 0 !important;
-    margin: -1px !important;
-    overflow: hidden !important;
-    clip: rect(0, 0, 0, 0) !important;
-    white-space: nowrap !important;
-    border: 0 !important;
 }

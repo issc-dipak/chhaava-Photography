@@ -70,7 +70,7 @@ const posts = [
             catchlights and shadows change.
           </p>
           <ul>
-            <li>Exercise: Move the subject’s chin down 10° and observe shadow changes under the nose and eyes.</li>
+            <li>Exercise: Move the subject's chin down 10° and observe shadow changes under the nose and eyes.</li>
           </ul>
 
           <h3>Quick checklist before a portrait shoot</h3>
@@ -83,7 +83,7 @@ const posts = [
 
           <h3>Further learning and next steps</h3>
           <p>
-            If you’d like a hands-on session to try these techniques, check our <a href="/services">Services</a> for studio
+            If you'd like a hands-on session to try these techniques, check our <a href="/services">Services</a> for studio
             and outdoor options. Our <a href="/pricing">Pricing</a> page lists packages with studio time and retouching —
             or <a href="/contact">contact us</a> to customise a practical lighting workshop.
           </p>
@@ -187,7 +187,7 @@ const posts = [
     content: function Post() {
       return (
         <>
-          <h2>What’s new at our studio</h2>
+          <h2>What's new at our studio</h2>
           <p>
             We invest slowly and thoughtfully in gear and studio improvements so you always receive a professional experience and refined final images.
           </p>
@@ -235,62 +235,64 @@ const posts = [
 
 export default function Blog() {
   return (
-    <main className="blog-page container" aria-labelledby="blog-heading">
-      <header className="blog-header">
-        <p className="kicker">Blog & Tips</p>
-        <h1 id="blog-heading">Photography tips, behind-the-scenes stories and studio updates</h1>
-        <p className="lead">
-          Practical tips for photographers and clients, transparent behind-the-scenes workflows, and news from the studio.
-          Browse the posts below to learn, prepare for your session, and stay inspired.
-        </p>
-      </header>
+    <div className="blog-page">
+      <main className="blog-main container" aria-labelledby="blog-heading">
+        <header className="blog-header">
+          <p className="kicker">Blog & Tips</p>
+          <h1 id="blog-heading">Photography tips, behind-the-scenes stories and studio updates</h1>
+          <p className="lead">
+            Practical tips for photographers and clients, transparent behind-the-scenes workflows, and news from the studio.
+            Browse the posts below to learn, prepare for your session, and stay inspired.
+          </p>
+        </header>
 
-      <nav className="blog-nav" aria-label="Blog posts">
-        <ul>
-          {posts.map((p) => (
-            <li key={p.id}>
-              <a href={`#${p.id}`}>{p.title}</a>
-            </li>
+        <nav className="blog-nav" aria-label="Blog posts">
+          <ul>
+            {posts.map((p) => (
+              <li key={p.id}>
+                <a href={`#${p.id}`}>{p.title}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <section className="posts-list">
+          {posts.map((post) => (
+            <article className="post" id={post.id} key={post.id} itemScope itemType="http://schema.org/Article">
+              <header className="post-header">
+                <h2 className="post-title" itemProp="headline">{post.title}</h2>
+                <time className="post-date" dateTime={post.date} itemProp="datePublished">
+                  {new Date(post.date).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })}
+                </time>
+                <p className="post-description">{post.description}</p>
+              </header>
+
+              <figure className="post-figure">
+                <img src={post.featuredImage} alt={post.title} />
+                <figcaption className="sr-only">Featured image for {post.title}</figcaption>
+              </figure>
+
+              <section className="post-content" itemProp="articleBody">
+                {post.content()}
+              </section>
+
+              <footer className="post-footer">
+                <p className="small muted">Tags: photography tips, studio, workflow</p>
+                <a className="back-to-top" href="#blog-heading">↑ Back to top</a>
+              </footer>
+            </article>
           ))}
-        </ul>
-      </nav>
+        </section>
 
-      <section className="posts-list">
-        {posts.map((post) => (
-          <article className="post" id={post.id} key={post.id} itemScope itemType="http://schema.org/Article">
-            <header className="post-header">
-              <h2 className="post-title" itemProp="headline">{post.title}</h2>
-              <time className="post-date" dateTime={post.date} itemProp="datePublished">
-                {new Date(post.date).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" })}
-              </time>
-              <p className="post-description">{post.description}</p>
-            </header>
-
-            <figure className="post-figure">
-              <img src={post.featuredImage} alt={post.title} />
-              <figcaption className="sr-only">Featured image for {post.title}</figcaption>
-            </figure>
-
-            <section className="post-content" itemProp="articleBody">
-              {post.content()}
-            </section>
-
-            <footer className="post-footer">
-              <p className="small muted">Tags: photography tips, studio, workflow</p>
-              <a className="back-to-top" href="#blog-heading">↑ Back to top</a>
-            </footer>
-          </article>
-        ))}
-      </section>
-
-      <aside className="blog-cta">
-        <div className="cta-card">
-          <h3>Ready to book or ask a question?</h3>
-          <p className="lead">We’d love to help plan your session and answer any questions about packages, editing or delivery.</p>
-          <a className="btn btn-primary" href="/contact">Contact us →</a>
-          <a className="btn btn-ghost" href="/services" style={{ marginLeft: 10 }}>View Services</a>
-        </div>
-      </aside>
-    </main>
+        <aside className="blog-cta">
+          <div className="cta-card">
+            <h3>Ready to book or ask a question?</h3>
+            <p className="lead">We'd love to help plan your session and answer any questions about packages, editing or delivery.</p>
+            <a className="btn btn-primary" href="/contact">Contact us →</a>
+            <a className="btn btn-ghost" href="/services" style={{ marginLeft: 10 }}>View Services</a>
+          </div>
+        </aside>
+      </main>
+    </div>
   );
 }

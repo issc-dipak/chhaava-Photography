@@ -1,8 +1,5 @@
-// ...existing code...
 import React from "react";
-import Lightbox from "../components/Lightbox.jsx";
 import "../styles/gallery.css"; 
-
 
 const IMAGES = [
   // Weddings
@@ -37,46 +34,47 @@ export default function Gallery() {
   }
 
   return (
-    <section className="section">
-      <div className="container">
-        <div className="kicker">Portfolio</div>
-        <h2>Gallery</h2>
-        <p className="lead">Click any image to view larger. Use the arrows or keyboard to navigate.</p>
+    <div className="gallery-page">
+      <section className="section">
+        <div className="container">
+          <div className="kicker">Portfolio</div>
+          <h2>Gallery</h2>
+          <p className="lead">Click any image to view larger. Use the arrows or keyboard to navigate.</p>
 
-        <div className="gallery__filters">
-          {categories.map(c => (
-            <button
-              key={c}
-              onClick={() => setFilter(c)}
-              className={`btn gallery__filter${filter === c ? " active" : ""}`}
-              aria-pressed={filter === c}
-            >
-              {c}
-            </button>
-          ))}
+          <div className="gallery__filters">
+            {categories.map(c => (
+              <button
+                key={c}
+                onClick={() => setFilter(c)}
+                className={`btn gallery__filter${filter === c ? " active" : ""}`}
+                aria-pressed={filter === c}
+              >
+                {c}
+              </button>
+            ))}
+          </div>
+
+          <div className="gallery-grid">
+            {filtered.map((img, i) => (
+              <div
+                key={i}
+                className="gallery-item"
+                onClick={() => openLightbox(IMAGES.indexOf(img))}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") openLightbox(IMAGES.indexOf(img)); }}
+              >
+                <img src={img.src} alt={img.alt} loading="lazy" />
+                <div className="meta">{img.category}</div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="gallery-grid">
-          {filtered.map((img, i) => (
-            <div
-              key={i}
-              className="gallery-item"
-              onClick={() => openLightbox(IMAGES.indexOf(img))}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") openLightbox(IMAGES.indexOf(img)); }}
-            >
-              <img src={img.src} alt={img.alt} loading="lazy" />
-              <div className="meta">{img.category}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {lightboxOpen && (
-        <Lightbox images={IMAGES} startIndex={startIndex} onClose={() => setLightboxOpen(false)} />
-      )}
-    </section>
+        {lightboxOpen && (
+          <Lightbox images={IMAGES} startIndex={startIndex} onClose={() => setLightboxOpen(false)} />
+        )}
+      </section>
+    </div>
   );
 }
-// ...existing code...

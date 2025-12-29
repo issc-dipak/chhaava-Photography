@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../styles/home.css"; 
 
-
 // Premium Indian Wedding Images (HD Quality)
 const INDIAN_WEDDING_PHOTOS = [
   {
@@ -328,24 +327,32 @@ export default function Home() {
   }, [activeCategory, isAutoScroll]);
 
   return (
-    <>
+    <div className="home-page">
       {/* Hero Section with Video Background */}
       <section className="hero">
-        <div className="hero-video" aria-hidden="true">
-          <video 
-            autoPlay 
-            muted 
-            loop 
-            playsInline
-            poster="https://images.pexels.com/photos/29967503/pexels-photo-29967503.jpeg"
-          >
-            <source 
-              src="https://assets.mixkit.co/videos/preview/mixkit-indian-wedding-couple-43222-large.mp4" 
-              type="video/mp4" 
-            />
-          </video>
-          <div className="video-overlay"></div>
-        </div>
+       <div className="hero-video" aria-hidden="true">
+  <video 
+    autoPlay 
+    muted 
+    loop 
+    playsInline
+    preload="metadata"
+    disablePictureInPicture
+    disableRemotePlayback
+    poster="https://images.pexels.com/photos/29967503/pexels-photo-29967503.jpeg"
+  >
+    <source 
+      src="https://pixabay.com/videos/download/video-87806_medium.mp4" 
+      type="video/mp4" 
+    />
+    {/* Fallback for unsupported browsers */}
+    <img 
+      src="https://images.pexels.com/photos/29967503/pexels-photo-29967503.jpeg" 
+      alt="Indian Wedding Couple Portrait" 
+    />
+  </video>
+  <div className="video-overlay" role="presentation"></div>
+</div>
         
         <div className="container hero-content">
           <div className="kicker">Premium Indian Wedding Photography</div>
@@ -527,6 +534,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
