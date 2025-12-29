@@ -1,5 +1,8 @@
+// ...existing code...
 import React from "react";
 import Lightbox from "../components/Lightbox.jsx";
+import "../styles/gallery.css"; 
+
 
 const IMAGES = [
   // Weddings
@@ -40,26 +43,29 @@ export default function Gallery() {
         <h2>Gallery</h2>
         <p className="lead">Click any image to view larger. Use the arrows or keyboard to navigate.</p>
 
-        <div style={{ marginBottom: 12, display: "flex", gap: 8, flexWrap: "wrap" }}>
+        <div className="gallery__filters">
           {categories.map(c => (
             <button
               key={c}
               onClick={() => setFilter(c)}
-              className="btn"
-              style={{
-                background: filter === c ? "linear-gradient(90deg,var(--accent),var(--accent-2))" : "transparent",
-                color: filter === c ? "white" : "var(--muted)",
-                border: filter === c ? "none" : "1px solid rgba(255,255,255,0.04)"
-              }}
+              className={`btn gallery__filter${filter === c ? " active" : ""}`}
+              aria-pressed={filter === c}
             >
               {c}
             </button>
           ))}
         </div>
 
-        <div className="gallery-grid" style={{ marginTop: 12 }}>
+        <div className="gallery-grid">
           {filtered.map((img, i) => (
-            <div key={i} className="gallery-item" onClick={() => openLightbox(IMAGES.indexOf(img))}>
+            <div
+              key={i}
+              className="gallery-item"
+              onClick={() => openLightbox(IMAGES.indexOf(img))}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") openLightbox(IMAGES.indexOf(img)); }}
+            >
               <img src={img.src} alt={img.alt} loading="lazy" />
               <div className="meta">{img.category}</div>
             </div>
@@ -73,3 +79,4 @@ export default function Gallery() {
     </section>
   );
 }
+// ...existing code...

@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import "../styles/lightbox.css"; 
 
 export default function Lightbox({ images = [], startIndex = 0, onClose }) {
   const [index, setIndex] = React.useState(startIndex);

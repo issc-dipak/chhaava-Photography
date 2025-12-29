@@ -1,72 +1,91 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { Menu, X } from "lucide-react";
+import "../styles/navbar.css"; 
+
+const NAV_LINKS = [
+  { to: "/", label: "Home" },
+  { to: "/gallery", label: "Gallery" },
+  { to: "/portfolio", label: "Portfolio" },
+  { to: "/services", label: "Services" },
+  { to: "/pricing", label: "Pricing" },
+  { to: "/about", label: "About" },
+  { to: "/blog", label: "Blog" },
+  { to: "/testimonials", label: "Testimonials" },
+  { to: "/booking", label: "Booking" },
+  { to: "/contact", label: "Contact" },
+];
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
-  const loc = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
-  const links = [
-    { to: "/", label: "Home" },
-    { to: "/about", label: "About" },
-    { to: "/gallery", label: "Gallery" },
-    { to: "/contact", label: "Contact" },
-  ];
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <nav className="navbar">
-      <div className="container navbar-inner">
-        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <div className="brand">
+    <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
+      <div className="navbar-container">
+        {/* Logo/Brand */}
+        <div className="navbar-brand">
+          <Link to="/" className="logo-link">
             <div className="logo">C</div>
             <div>
-              <div style={{ fontSize: 14 }}>Chhaava Studio</div>
-              <div style={{ fontSize: 12, color: "var(--muted)" }}>Photography</div>
+              <div className="brand-name">Chhaava Studio</div>
+              <div className="brand-tagline">Professional Photography</div>
             </div>
-          </div>
+          </Link>
         </div>
 
-        <div className="nav-links" aria-hidden={open ? "false" : "true"}>
-          {links.map((l) => (
-            <Link key={l.to} to={l.to} className={loc.pathname === l.to ? "active" : ""}>
-              {l.label}
+        {/* Desktop Navigation */}
+        <div className="navbar-links">
+          {NAV_LINKS.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              className={`nav-link ${
+                location.pathname === link.to ? "active" : ""
+              }`}
+            >
+              {link.label}
             </Link>
           ))}
         </div>
 
+        {/* Mobile Menu Button */}
         <button
-          className="menu-toggle"
+          className="mobile-menu-btn"
+          onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
-          onClick={() => setOpen((v) => !v)}
+          aria-expanded={isOpen}
         >
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path d="M3 6h18M3 12h18M3 18h18" strokeWidth="1.6" strokeLinecap="round" />
-          </svg>
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
-      </div>
 
-      {/* Mobile menu */}
-      {open && (
-        <div style={{ padding: "12px 0", borderTop: "1px solid rgba(255,255,255,0.03)" }}>
-          <div className="container" style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-            {links.map((l) => (
+        {/* Mobile Navigation */}
+        <div className={`mobile-menu ${isOpen ? "active" : ""}`}>
+          <div className="mobile-menu-inner">
+            {NAV_LINKS.map((link) => (
               <Link
-                key={l.to}
-                to={l.to}
-                onClick={() => setOpen(false)}
-                style={{
-                  padding: "10px 12px",
-                  borderRadius: 8,
-                  color: loc.pathname === l.to ? "white" : "var(--muted)",
-                  background: loc.pathname === l.to ? "var(--glass)" : "transparent",
-                  textDecoration: "none",
-                }}
+                key={link.to}
+                to={link.to}
+                className={`mobile-link ${
+                  location.pathname === link.to ? "active" : ""
+                }`}
+                onClick={() => setIsOpen(false)}
               >
-                {l.label}
+                {link.label}
               </Link>
             ))}
           </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 }
