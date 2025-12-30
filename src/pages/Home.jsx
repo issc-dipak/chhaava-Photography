@@ -5,299 +5,183 @@ import "../styles/home.css";
 // Premium Indian Wedding Images (HD Quality)
 const INDIAN_WEDDING_PHOTOS = [
   {
-    src: "https://images.pexels.com/photos/2486420/pexels-photo-2486420.jpeg",
+   src: "/assets/gallery/mehndi7.jpg",
     alt: "Indian Wedding Mehndi Ceremony",
     category: "mehndi"
   },
   {
-    src: "https://images.pexels.com/photos/12899814/pexels-photo-12899814.jpeg",
+    src: "/assets/gallery/mehndi6.jpg",
     alt: "Indian Wedding Mehndi Ceremony",
     category: "mehndi"
   },
   {
-    src: "https://images.pexels.com/photos/30708198/pexels-photo-30708198.jpeg",
+    src: "/assets/gallery/mehndi5.jpg",
     alt: "Indian Wedding Mehndi Ceremony",
     category: "mehndi"
   },
   {
-    src: "https://images.pexels.com/photos/13624551/pexels-photo-13624551.jpeg",
+    src: "/assets/gallery/mehndi.jpg",
     alt: "Indian Wedding Mehndi Ceremony",
     category: "mehndi"
   },
   {
-    src: "https://images.pexels.com/photos/30931271/pexels-photo-30931271.jpeg",
+    src: "/assets/gallery/mehndi3.jpg",
     alt: "Indian Wedding Mehndi Ceremony",
     category: "mehndi"
   },
   {
-    src: "https://images.pexels.com/photos/8431080/pexels-photo-8431080.jpeg",
+     src: "/assets/gallery/mehndi2.jpg",
     alt: "Indian Wedding Mehndi Ceremony",
     category: "mehndi"
   },
   {
-    src: "https://images.pexels.com/photos/20736188/pexels-photo-20736188.jpeg",
+    src: "/assets/gallery/mehndi1.jpg",
     alt: "Indian Wedding Mehndi Ceremony",
     category: "mehndi"
   },
   {
-    src: "https://images.pexels.com/photos/30868062/pexels-photo-30868062.jpeg",
+     src: "/assets/gallery/mehndi4.jpg",
     alt: "Indian Wedding Mehndi Ceremony",
     category: "mehndi"
   },
   {
-    src: "https://images.pexels.com/photos/12995512/pexels-photo-12995512.jpeg",
+    src: "/assets/gallery/bridal.jpg",
     alt: "Traditional Indian Bride",
     category: "bridal"
   },
    {
-    src: "https://images.pexels.com/photos/30589148/pexels-photo-30589148.jpeg",
-    alt: "Traditional Indian Bride",
-    category: "bridal"
-  },
-   {
-    src: "https://images.pexels.com/photos/30589149/pexels-photo-30589149.jpeg",
-    alt: "Traditional Indian Bride",
-    category: "bridal"
-  },
-   {
-    src: "https://images.pexels.com/photos/10773464/pexels-photo-10773464.jpeg",
-    alt: "Traditional Indian Bride",
-    category: "bridal"
-  },
-   {
-    src: "https://images.pexels.com/photos/14639436/pexels-photo-14639436.jpeg",
-    alt: "Traditional Indian Bride",
-    category: "bridal"
-  },
-   {
-    src: "https://images.pexels.com/photos/11171095/pexels-photo-11171095.jpeg",
-    alt: "Traditional Indian Bride",
-    category: "bridal"
-  },
-   {
-    src: "https://images.pexels.com/photos/8751942/pexels-photo-8751942.jpeg",
-    alt: "Traditional Indian Bride",
-    category: "bridal"
-  },
-   {
-    src: "https://images.pexels.com/photos/3872626/pexels-photo-3872626.jpeg",
-    alt: "Traditional Indian Bride",
-    category: "bridal"
-  },
+  src: "/assets/gallery/bridal1.jpg",
+  alt: "Traditional Indian Bride ",
+  category: "bridal"
+},
+{
+  src: "/assets/gallery/bridal2.jpg",
+  alt: "Traditional Indian Bride ",
+  category: "bridal"
+},
+{
+  src: "/assets/gallery/bridal3.jpg",
+  alt: "Traditional Indian Bride ",
+  category: "bridal"
+},
+{
+  src: "/assets/gallery/bridal4.jpg",
+  alt: "Traditional Indian Bride ",
+  category: "bridal"
+},
+{
+  src: "/assets/gallery/bridal5.jpg",
+  alt: "Traditional Indian Bride ",
+  category: "bridal"
+},
+{
+  src: "/assets/gallery/bridal6.jpg",
+  alt: "Traditional Indian Bride ",
+  category: "bridal"
+},
+{
+  src: "/assets/gallery/bridal7.jpg",
+  alt: "Traditional Indian Bride ",
+  category: "bridal"
+},
+
   {
-    src: "https://images.pexels.com/photos/16314538/pexels-photo-16314538.jpeg",
+    src: "/assets/gallery/wedding.jpg",
     alt: "Indian Wedding Pheras",
     category: "wedding"
   },
   {
-    src: "https://images.pexels.com/photos/30184675/pexels-photo-30184675.jpeg",
+    src: "/assets/gallery/wedding1.jpg",
     alt: "Indian Wedding Pheras",
     category: "wedding"
   },
   {
-    src: "https://images.pexels.com/photos/27876538/pexels-photo-27876538.jpeg",
+    src: "/assets/gallery/wedding2.jpg",
     alt: "Indian Wedding Pheras",
     category: "wedding"
   },
   {
-    src: "https://images.pexels.com/photos/27876531/pexels-photo-27876531.jpeg",
+    src: "/assets/gallery/wedding3.jpg",
     alt: "Indian Wedding Pheras",
     category: "wedding"
   },
   {
-    src: "https://images.pexels.com/photos/29890904/pexels-photo-29890904.jpeg",
+    src: "/assets/gallery/wedding4.jpg",
     alt: "Indian Wedding Pheras",
     category: "wedding"
   },
   {
-    src: "https://images.pexels.com/photos/26056318/pexels-photo-26056318.jpeg",
+    src: "/assets/gallery/wedding5.jpg",
     alt: "Indian Wedding Pheras",
     category: "wedding"
   },
   {
-    src: "https://images.pexels.com/photos/5491254/pexels-photo-5491254.jpeg",
+    src: "/assets/gallery/wedding6.jpg",
     alt: "Indian Wedding Pheras",
     category: "wedding"
   },
   {
-    src: "https://images.pexels.com/photos/30184615/pexels-photo-30184615.jpeg",
+    src: "/assets/gallery/wedding7.jpg",
     alt: "Indian Wedding Pheras",
     category: "wedding"
   },
   {
-    src: "https://images.pexels.com/photos/18897198/pexels-photo-18897198.jpeg",
+    src: "/assets/gallery/wedding8.jpg",
+    alt: "Indian Wedding Pheras",
+    category: "wedding"
+  },
+  {
+    src: "/assets/gallery/wedding9.jpg",
+    alt: "Indian Wedding Pheras",
+    category: "wedding"
+  },
+  {
+    src: "/assets/gallery/wedding10.jpg",
+    alt: "Indian Wedding Pheras",
+    category: "wedding"
+  },
+   
+  {
+    src: "/assets/gallery/haldi2.jpg",
     alt: "Indian Wedding Haldi Ceremony",
     category: "haldi"
   },
   {
-    src: "https://images.pexels.com/photos/7153785/pexels-photo-7153785.jpeg",
+    src: "/assets/gallery/wedding11.jpeg",
     alt: "Indian Wedding Haldi Ceremony",
     category: "haldi"
   },
   {
-    src: "https://images.pexels.com/photos/29496276/pexels-photo-29496276.jpeg",
+    src: "/assets/gallery/haldi2.jpg",
     alt: "Indian Wedding Haldi Ceremony",
     category: "haldi"
   },
   {
-    src: "https://images.pexels.com/photos/30706024/pexels-photo-30706024.jpeg",
+    src: "/assets/gallery/haldi3.jpg",
     alt: "Indian Wedding Haldi Ceremony",
     category: "haldi"
   },
   {
-    src: "https://images.pexels.com/photos/7153762/pexels-photo-7153762.jpeg",
+    src: "/assets/gallery/haldi4.jpg",
     alt: "Indian Wedding Haldi Ceremony",
     category: "haldi"
   },
   {
-    src: "https://images.pexels.com/photos/33786308/pexels-photo-33786308.jpeg",
+    src: "/assets/gallery/haldi5.jpg",
     alt: "Indian Wedding Haldi Ceremony",
     category: "haldi"
   },
   {
-    src: "https://images.pexels.com/photos/33078539/pexels-photo-33078539.jpeg",
+    src: "/assets/gallery/haldi6.jpg",
     alt: "Indian Wedding Haldi Ceremony",
     category: "haldi"
   },
   {
-    src: "https://images.pexels.com/photos/32325926/pexels-photo-32325926.jpeg",
+    src: "/assets/gallery/haldi7.jpg",
     alt: "Indian Wedding Haldi Ceremony",
     category: "haldi"
   },
   
-  {
-    src: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3",
-    alt: "Indian Wedding Sangeet",
-    category: "sangeet"
-  },
- 
-  {
-    src: "https://images.pexels.com/photos/33885314/pexels-photo-33885314.jpeg",
-    alt: "Indian Wedding Family Portraits",
-    category: "family"
-  },
-  {
-    src: "https://images.pexels.com/photos/33885305/pexels-photo-33885305.jpeg",
-    alt: "Indian Wedding Family Portraits",
-    category: "family"
-  },
-  {
-    src: "https://images.pexels.com/photos/33885302/pexels-photo-33885302.jpeg",
-    alt: "Indian Wedding Family Portraits",
-    category: "family"
-  },
-  {
-    src: "https://images.pexels.com/photos/33885303/pexels-photo-33885303.jpeg",
-    alt: "Indian Wedding Family Portraits",
-    category: "family"
-  },
-  {
-    src: "https://images.pexels.com/photos/35267196/pexels-photo-35267196.jpeg",
-    alt: "Indian Wedding Family Portraits",
-    category: "family"
-  },
-  {
-    src: "https://images.pexels.com/photos/14051007/pexels-photo-14051007.jpeg",
-    alt: "Indian Wedding Family Portraits",
-    category: "family"
-  },
-  {
-    src: "https://images.pexels.com/photos/34479822/pexels-photo-34479822.jpeg",
-    alt: "Indian Wedding Family Portraits",
-    category: "family"
-  },
-  
-  {
-    src: "https://images.pexels.com/photos/35267194/pexels-photo-35267194.jpeg",
-    alt: "Indian Wedding Family Portraits",
-    category: "family"
-  },
-  {
-    src: "https://images.unsplash.com/photo-1600586113610-e7337d5d63f2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3",
-    alt: "Indian Wedding Venue",
-    category: "venue"
-  },
-  {
-    src: "https://images.pexels.com/photos/15026762/pexels-photo-15026762.jpeg",
-    alt: "Indian Wedding Candid Moments",
-    category: "candid"
-  },
-  {
-    src: "https://images.pexels.com/photos/15026763/pexels-photo-15026763.jpeg",
-    alt: "Indian Wedding Candid Moments",
-    category: "candid"
-  },
-   {
-    src: "https://images.pexels.com/photos/17657670/pexels-photo-17657670.jpeg",
-    alt: "Indian Wedding Candid Moments",
-    category: "candid"
-  },
-  {
-    src: "https://images.pexels.com/photos/17548722/pexels-photo-17548722.jpeg",
-    alt: "Indian Wedding Candid Moments",
-    category: "candid"
-  },
-  {
-    src: "https://images.pexels.com/photos/31567827/pexels-photo-31567827.jpeg",
-    alt: "Indian Wedding Candid Moments",
-    category: "candid"
-  },
-  {
-    src: "https://images.pexels.com/photos/31580615/pexels-photo-31580615.jpeg",
-    alt: "Indian Wedding Candid Moments",
-    category: "candid"
-  },
-   {
-    src: "https://images.pexels.com/photos/15099755/pexels-photo-15099755.jpeg",
-    alt: "Indian Wedding Candid Moments",
-    category: "candid"
-  },
-  {
-    src: "https://images.pexels.com/photos/33078538/pexels-photo-33078538.jpeg",
-    alt: "Indian Wedding Candid Moments",
-    category: "candid"
-  },
-  {
-    src: "https://images.pexels.com/photos/29816039/pexels-photo-29816039.jpeg",
-    alt: "Indian Wedding Grand Finale",
-    category: "sangeet"
-  },
-  {
-    src: "https://images.pexels.com/photos/33118018/pexels-photo-33118018.jpeg",
-    alt: "Indian Wedding Grand Finale",
-    category: "sangeet"
-  },
-  {
-    src: "https://images.pexels.com/photos/28074356/pexels-photo-28074356.jpeg",
-    alt: "Indian Wedding Grand Finale",
-    category: "sangeet"
-  },
-  {
-    src: "https://images.pexels.com/photos/31832650/pexels-photo-31832650.jpeg",
-    alt: "Indian Wedding Grand Finale",
-    category: "sangeet"
-  },
-  {
-    src: "https://images.pexels.com/photos/34540656/pexels-photo-34540656.jpeg",
-    alt: "Indian Wedding Grand Finale",
-    category: "sangeet"
-  },
-  {
-    src: "https://images.pexels.com/photos/34540655/pexels-photo-34540655.jpeg",
-    alt: "Indian Wedding Grand Finale",
-    category: "sangeet"
-  },
-  {
-    src: "https://images.pexels.com/photos/14819939/pexels-photo-14819939.jpeg",
-    alt: "Indian Wedding Grand Finale",
-    category: "sangeet"
-  },
-  
-  {
-    src: "https://images.pexels.com/photos/35354285/pexels-photo-35354285.jpeg",
-    alt: "Indian Wedding Grand Finale",
-    category: "sangeet"
-  },
 ];
 
 export default function Home() {
@@ -306,7 +190,6 @@ export default function Home() {
 
   const categories = [
     "all", "mehndi", "bridal", "wedding", "haldi", 
-    "sangeet",  "family", "candid",
   ];
 
   const filteredPhotos = activeCategory === "all" 
@@ -379,8 +262,8 @@ export default function Home() {
             </div>
           </div>
           <div className="cta">
-            <Link to="/portfolio" className="btn btn-primary">
-              <span>View Our Portfolio</span>
+            <Link to="/gallery" className="btn btn-primary">
+              <span>View Our gallery</span>
               <svg className="btn-icon" viewBox="0 0 24 24" fill="none">
                 <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="2"/>
               </svg>
@@ -489,8 +372,8 @@ export default function Home() {
           </div>
 
           <div className="view-more">
-            <Link to="/portfolio" className="btn btn-outline">
-              View Complete Portfolio
+            <Link to="/gallery" className="btn btn-outline">
+              View Complete Gallery
               <svg className="arrow-icon" viewBox="0 0 24 24" fill="none">
                 <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2"/>
               </svg>
