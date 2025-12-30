@@ -167,7 +167,6 @@ export default function Gallery() {
     <div className="gallery-page">
       <section className="section">
         <div className="container">
-          <div className="kicker">Portfolio</div>
           <h2>Gallery</h2>
           <p className="lead">Click any image to view larger. Use the arrows or keyboard to navigate.</p>
 

@@ -72,7 +72,6 @@ export default function Contact() {
     <div className="contact-page">
       <section className="section">
         <div className="container">
-          <div className="kicker">Contact</div>
           <h2>Get in Touch</h2>
           <p className="lead">
             For bookings, inquiries, or custom quotes — send us a message below.
