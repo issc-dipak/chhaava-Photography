@@ -278,11 +278,6 @@ export default function Home() {
           </div>
         </div>
         
-        <div className="scroll-indicator">
-          <div className="mouse">
-            <div className="wheel"></div>
-          </div>
-        </div>
       </section>
 
       {/* Featured Indian Wedding Gallery */}

@@ -771,3 +771,53 @@
         border-bottom: 1px solid #000000;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+/* Small Mobile (480px and down) */
+@media (max-width: 480px) {
+    .blog-page .blog-header h1 {
+        font-size: var(--text-2xl);
+    }
+
+    .blog-page .kicker {
+        font-size: var(--text-sm);
+        padding-left: var(--space-sm);
+    }
+
+    .blog-page .post {
+        padding: var(--space-md);
+    }
+
+    .blog-page .post-title {
+        font-size: var(--text-lg);
+    }
+
+    .blog-page .post-date {
+        font-size: var(--text-xs);
+    }
+
+    .blog-page .post-description {
+        font-size: var(--text-sm);
+    }
+
+    .blog-page .post-content {
+        font-size: var(--text-sm);
+    }
+
+    .blog-page .post-content ul {
+        padding-left: var(--space-md);
+    }
+
+    .blog-page .post-cta {
+        padding: var(--space-md);
+    }
+}
