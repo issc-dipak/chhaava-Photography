@@ -136,7 +136,7 @@ const INDIAN_WEDDING_PHOTOS = [
     category: "wedding"
   },
   {
-    src: "/assets/gallery/wedding10.jpg",
+    src: "/assets/gallery/wedding10.jpeg",
     alt: "Indian Wedding Pheras",
     category: "wedding"
   },
